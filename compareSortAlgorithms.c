@@ -98,23 +98,22 @@ void bubbleSort(int* pData, int n)
 // extraMemoryAllocated counts bytes of extra memory allocated
 void selectionSort(int* pData, int n)
 {
-    int i, j, min_idx, temp;
+    int i, j, minidx, temp;
 
     for (i = 0; i < n - 1; i++) {
         min_idx = i;
         for (j = i + 1; j < n; j++) {
-            if (pData[j] < pData[min_idx]) {
-                min_idx = j;
+            if (pData[j] < pData[minidx]) {
+                minidx = j;
             }
         }
         temp = pData[i];
-        pData[i] = pData[min_idx];
-        pData[min_idx] = temp;
+        pData[i] = pData[minidx];
+        pData[minidx] = temp;
     }
 }
 
 // parses input file to an integer array
-
 int parseData(char *inputFileName, int **ppData)
 {
     FILE* inFile = fopen(inputFileName,"r");
@@ -134,8 +133,6 @@ int parseData(char *inputFileName, int **ppData)
     fclose(inFile);
     return dataSz;
 }
-
-
 
 // prints first and last 100 items in the data array
 void printArray(int pData[], int dataSz)
